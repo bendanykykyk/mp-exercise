@@ -1,3 +1,16 @@
 <!--pages/home/home.wxml-->
-<text class="title">Hello World</text>
-<button size="mini">按钮</button>
+<!-- 数据绑定  -->
+<view>{{title}}</view>
+<!-- 数据循环 -->
+<view wx:for="{{persons}}" wx:key="name" wx:for-item="item">{{item.name}}</view>
+
+<!-- 多层循环 -->
+<view wx:for-item="item" wx:for="{{lists}}" wx:key="title" >
+  <text wx:for-item="number" wx:for="{{item.numbers}}" wx:key="number">{{number}}</text>
+</view>
+
+<!-- 事件监听 -->
+<view>数字：{{counter}}</view>
+<button size="mini" bindtap="handleAdd">+</button>
+<button size="mini" bindtap="handleReduce">-</button>
+
